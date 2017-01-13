@@ -11,12 +11,11 @@ const fs  = require('fs'),
 
 exports.generatePdf = function(data, templatePath, extendArgs, outputFile, callback) {
 
-    let pdfPath = isAbsolute(templatePath) ? templatePath : path.join(__dirname, templatePath);
-    generatorFdf(data,'./test/data.fdf');
+    generatorFdf(data,'./data.fdf');
     let normalized = normalizeArgs(extendArgs, callback);
     extendArgs = normalized.args;
     callback   = normalized.callback;
-    let processArgs = [pdfPath, 'fill_form','./test/data.fdf', 'output', outputFile].concat(extendArgs);
+    let processArgs = [templatePath, 'fill_form','./data.fdf', 'output', outputFile].concat(extendArgs);
     let cmd = 'pdftk',option = {
         encoding: 'utf8',
         timeout: 100000,
