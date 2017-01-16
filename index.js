@@ -71,8 +71,3 @@ function normalizeArgs(extendArgs, callback) {
     return { args: extendArgs, callback: callback };
 }
 
-
-function isAbsolute(Path) {
-    return (path.isAbsolute && path.isAbsolute(Path)) ||
-        (path.normalize(Path + '/') === path.normalize(path.resolve(Path) + '/'));
-}
