@@ -1,6 +1,6 @@
 {
   "name": "fill-pdf-utf8",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "use nodejs to fill pdf form,it supports utf8 character",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "keywords": [
     "pdf",
-    "fdf",
+    "xfdf",
     "utf8",
     "pdftk"
   ],
@@ -23,9 +23,7 @@
   },
   "homepage": "https://github.com/jay763190097/fill-pdf-utf8#readme",
   "dependencies": {
-    "iconv":"~2.2.1"
+    "xfdf": "^0.2.0"
   },
-  "devDependencies": {
-
-  }
+  "devDependencies": {}
 }
