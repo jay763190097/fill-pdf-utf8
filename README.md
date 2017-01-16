@@ -17,7 +17,7 @@ You need to have the ```pdftk``` binary in your PATH.
 ```javascript
 var fill_pdf = require('fill-pdf-utf8');
 
-fill_pdf.generatePdf({name:'张三',age:12},'test.pdf','need_appearances','result.pdf',function (error, stdout, stderr) {
+fill_pdf.generatePdf({fields:{name:'张三',age:12}},'test.pdf','need_appearances','result.pdf',function (error, stdout, stderr) {
 	if(error){
 		throw error;
 	}
