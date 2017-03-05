@@ -12,11 +12,8 @@ exports.generatePdf = function(data, templatePath, extendArgs, outputFile, callb
     generatorXFdf(data,templatePath,function (err) {
         if(err)
             throw err;
-        let normalized = normalizeArgs(extendArgs, callback);
-        extendArgs = normalized.args;
-        callback   = normalized.callback;
-        let processArgs = [templatePath, 'fill_form','./temp.xfdf', 'output', outputFile].concat(extendArgs);
-        let cmd = 'pdftk',option = {
+        let processArgs = [templatePath, 'fill_form','-', 'output','-','flatten','<./temp.xfdf>', outputFile];
+        let cmd = 'java -jar ./lib/mcpdf.jar',option = {
             encoding: 'utf8',
             timeout: 100000,
             maxBuffer: 200*1024,
@@ -42,16 +39,4 @@ function generatorXFdf(data, templatePath,callback) {
     builder.generateToFile('./temp.xfdf',callback);
 }
 
-
-function normalizeArgs(extendArgs, callback) {
-    if (typeof extendArgs === 'function') {
-        callback = extendArgs;
-        extendArgs = [];
-    }else if (!(extendArgs instanceof Array)) {
-        let param = extendArgs;
-        extendArgs = [];
-        extendArgs.push(param);
-    }
-    return { args: extendArgs, callback: callback };
-}
 
