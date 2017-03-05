@@ -3,6 +3,9 @@
 
 A node module to fill out PDF forms (utf8 compatible),It can support Windows、Linux、Mac platforms.
 
+This includes three branches.There are the ways of fill pdf form by fdf file and by xfdf file ,or use itextpdf.jar to fill pdf
+form.
+
 It uses [pdftk](http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/) to fill out PDF forms.
 
 ## Dependencies
