@@ -5,6 +5,7 @@
 
 const fs  = require('fs'),
     Xfdf = require('xfdf'),
+    path = require('path'),
     exec = require('child_process').exec;
 
 exports.generatePdf = function(data, templatePath, extendArgs, outputFile, callback) {
@@ -13,7 +14,7 @@ exports.generatePdf = function(data, templatePath, extendArgs, outputFile, callb
         if(err)
             throw err;
         let processArgs = [templatePath, 'fill_form','-', 'output','-','flatten','<./temp.xfdf>', outputFile];
-        let cmd = 'java -jar ./lib/mcpdf.jar',option = {
+        let cmd = 'java -jar "'+path.dirname(__filename)+'\\lib\\mcpdf.jar"',option = {
             encoding: 'utf8',
             timeout: 100000,
             maxBuffer: 200*1024,
