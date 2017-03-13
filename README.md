@@ -3,15 +3,10 @@
 
 A node module to fill out PDF forms (utf8 compatible),It can support Windows、Linux、Mac platforms.
 
-This includes three branches.There are the ways of fill pdf form by fdf file and by xfdf file ,or use itextpdf.jar to fill pdf
-form.
-
-The first way and second way you need to download [pdftk](http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/)
-they use pdftk to fill out PDF forms.
-The last way can be used directly.
+The previous version uses pdftk,but this version uses iText,so the Java environment is required, you need to download [jdk](http://www.oracle.com/technetwork/java/archive-139210.html) and install it to your computer.
 
 ## Dependencies
-You need to have the ```pdftk``` binary in your PATH.
+You need to have the ```java``` binary in your PATH.
 
 # Install
 
