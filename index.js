@@ -14,7 +14,7 @@ exports.generatePdf = function(data, templatePath, extendArgs, outputFile, callb
         if(err)
             throw err;
         let processArgs = [templatePath, 'fill_form','-', 'output','-','flatten','<./temp.xfdf>', outputFile];
-        let cmd = 'java -jar "'+path.dirname(__filename)+'\\lib\\mcpdf.jar"',option = {
+        let cmd = 'java -jar "'+path.dirname(__filename)+'\\lib\\fill_pdf_utf8.jar"',option = {
             encoding: 'utf8',
             timeout: 100000,
             maxBuffer: 200*1024,
