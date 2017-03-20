@@ -9,13 +9,13 @@ const fs  = require('fs'),
 
 exports.generatePdf = function(data, templatePath, extendArgs, outputFile, callback) {
 
-    generatorXFdf(data,templatePath,function (err) {
+    generatorXFdf(data,templatePath,outputFile,function (err) {
         if(err)
             throw err;
         let normalized = normalizeArgs(extendArgs, callback);
         extendArgs = normalized.args;
         callback   = normalized.callback;
-        let processArgs = [templatePath, 'fill_form','./temp.xfdf', 'output', outputFile].concat(extendArgs);
+        let processArgs = [templatePath, 'fill_form',outputFile.substring(0,outputFile.lastIndexOf('.'))+'.xfdf' , 'output', outputFile].concat(extendArgs);
         let cmd = 'pdftk',option = {
             encoding: 'utf8',
             timeout: 100000,
@@ -36,10 +36,10 @@ exports.generatePdf = function(data, templatePath, extendArgs, outputFile, callb
 };
 
 
-function generatorXFdf(data, templatePath,callback) {
+function generatorXFdf(data, templatePath,outputFile,callback) {
     let builder = new Xfdf({ pdf: templatePath});
     builder.fromJSON(data);
-    builder.generateToFile('./temp.xfdf',callback);
+    builder.generateToFile(outputFile.substring(0,outputFile.lastIndexOf('.'))+'.xfdf',callback);
 }
 
 
