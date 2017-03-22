@@ -3,7 +3,7 @@
 
 A node module to fill out PDF forms (utf8 compatible),It can support Windows、Linux、Mac platforms.
 
-The previous version uses pdftk,but this version uses iText,so the Java environment is required, you need to download [jdk](http://www.oracle.com/technetwork/java/archive-139210.html) and install it to your computer.
+The previous version uses pdftk,but this version uses iText,so the Java environment is required, you need to download [jdk](http://www.oracle.com/technetwork/java/archive-139210.html) and install it in your computer.
 
 ## Dependencies
 You need to have the ```java``` binary in your PATH.
