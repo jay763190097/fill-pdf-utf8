@@ -4,7 +4,7 @@
 'use strict';
 
 const fs  = require('fs'),
-    Xfdf = require('xfdf'),
+    Xfdf = require('./xfdf'),
     exec = require('child_process').exec;
 
 exports.generatePdf = function(data, templatePath, extendArgs, outputFile, callback) {
