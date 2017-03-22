@@ -1,6 +1,6 @@
 {
   "name": "fill-pdf-utf8",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "use nodejs to fill pdf form,it supports utf8 character",
   "main": "index.js",
   "scripts": {
