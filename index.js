@@ -4,16 +4,16 @@
 'use strict';
 
 const fs  = require('fs'),
-    Xfdf = require('xfdf'),
+    Xfdf = require('./xfdf'),
     path = require('path'),
     exec = require('child_process').exec;
 
 exports.generatePdf = function(data, templatePath, extendArgs, outputFile, callback) {
 
-    generatorXFdf(data,templatePath,function (err) {
+    generatorXFdf(data,templatePath,outputFile,function (err) {
         if(err)
             throw err;
-        let processArgs = [templatePath, 'fill_form','-', 'output','-','flatten','<./temp.xfdf>', outputFile];
+        let processArgs = [templatePath, 'fill_form','-', 'output','-','flatten','<'+outputFile.substring(0,outputFile.lastIndexOf('.'))+'.xfdf'+'>', outputFile];
         let cmd = 'java -jar "'+path.dirname(__filename)+'\\lib\\fill_pdf_utf8.jar"',option = {
             encoding: 'utf8',
             timeout: 100000,
@@ -34,10 +34,10 @@ exports.generatePdf = function(data, templatePath, extendArgs, outputFile, callb
 };
 
 
-function generatorXFdf(data, templatePath,callback) {
+function generatorXFdf(data, templatePath,outputFile,callback) {
     let builder = new Xfdf({ pdf: templatePath});
     builder.fromJSON(data);
-    builder.generateToFile('./temp.xfdf',callback);
+    builder.generateToFile(outputFile.substring(0,outputFile.lastIndexOf('.'))+'.xfdf',callback);
 }
 
 
