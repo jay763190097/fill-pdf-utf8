@@ -1,6 +1,6 @@
 {
   "name": "fill-pdf-utf8",
-  "version": "1.0.2",
+  "version": "2.1.1",
   "description": "use nodejs to fill pdf form,it supports utf8 character",
   "main": "index.js",
   "scripts": {
@@ -12,9 +12,11 @@
   },
   "keywords": [
     "pdf",
-    "fdf",
+    "xfdf",
     "utf8",
-    "pdftk"
+    "java",
+    "itext",
+    "abobe"
   ],
   "author": "jay <jiangmang.1992@163.com> (https://github.com/jay763190097)",
   "license": "ISC",
@@ -23,9 +25,12 @@
   },
   "homepage": "https://github.com/jay763190097/fill-pdf-utf8#readme",
   "dependencies": {
-    "iconv":"~2.2.1"
+    "lodash": "^3.2.0",
+    "xmlbuilder": "^2.5.1"
   },
   "devDependencies": {
-
+    "mocha": "^2.1.0",
+    "should": "^5.0.0",
+    "xml2js": "^0.4.5"
   }
 }

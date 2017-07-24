@@ -3,10 +3,10 @@
 
 A node module to fill out PDF forms (utf8 compatible),It can support Windows、Linux、Mac platforms.
 
-It uses [pdftk](http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/) to fill out PDF forms.
+The previous version uses pdftk,but this version uses iText,so the Java environment is required, you need to download [jdk](http://www.oracle.com/technetwork/java/archive-139210.html) and install it in your computer.
 
 ## Dependencies
-You need to have the ```pdftk``` binary in your PATH.
+You need to have the ```java``` binary in your PATH.
 
 # Install
 
@@ -17,7 +17,7 @@ You need to have the ```pdftk``` binary in your PATH.
 ```javascript
 var fill_pdf = require('fill-pdf-utf8');
 
-fill_pdf.generatePdf({name:'张三',age:12},'test.pdf','need_appearances','result.pdf',function (error, stdout, stderr) {
+fill_pdf.generatePdf({fields:{name:'张三',age:12}},'test.pdf','need_appearances','result.pdf',function (error, stdout, stderr) {
 	if(error){
 		throw error;
 	}
