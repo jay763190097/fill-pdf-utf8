@@ -14,6 +14,12 @@ exports.generatePdf = function(data, templatePath, extendArgs, outputFile, callb
         if(err)
             throw err;
         let processArgs = [templatePath,'fontPath',path.dirname(__filename)+'\\lib\\simfang.ttf','fill_form','-', 'output','-','flatten','<'+outputFile.substring(0,outputFile.lastIndexOf('.'))+'.xfdf'+'>', outputFile];
+        if(typeof extendArgs === 'object') {
+            for(let i in extendArgs) {
+                processArgs.push(i);
+                processArgs.push(extendArgs[i]);
+            }
+        }
         let cmd = 'java -jar "'+path.dirname(__filename)+'\\lib\\fill_pdf_utf8.jar"',option = {
             encoding: 'utf8',
             timeout: 100000,
