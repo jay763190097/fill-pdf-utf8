@@ -8,7 +8,7 @@ const fs  = require('fs'),
     path = require('path'),
     exec = require('child_process').exec;
 
-exports.generatePdf = function(data, templatePath, outputFile, callback, extendArgs) {
+exports.generatePdf = function(data, templatePath, extendArgs, outputFile, callback) {
 
     generatorXFdf(data,templatePath,outputFile,function (err) {
         if(err)

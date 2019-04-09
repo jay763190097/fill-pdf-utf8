@@ -17,7 +17,7 @@ You need to have the ```java``` binary in your PATH.
 ```javascript
 var fill_pdf = require('fill-pdf-utf8');
 
-fill_pdf.generatePdf({fields:{name:'张三',age:12}},'test.pdf','need_appearances',{fontSize: 8.0},'result.pdf',function (error, stdout, stderr) {
+fill_pdf.generatePdf({fields:{name:'张三',age:12}},'test.pdf',{fontSize: 8.0},'result.pdf',function (error, stdout, stderr) {
 	if(error){
 		throw error;
 	}
